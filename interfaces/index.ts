@@ -11,3 +11,4 @@ export * from "./oRuntime";
 export * from "./oLoader";
 export * from "./registry";
 export * from "./oComponent";
+export * from "./oRouter";
