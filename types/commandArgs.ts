@@ -1,0 +1,1 @@
+export type CommandArgs = { [key: string]: (string | number | object | []) };
