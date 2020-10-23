@@ -6,6 +6,7 @@ export abstract class Definition { }
 
 
 export abstract class Component<Args extends Arguments, Def extends Definition> implements oComponent<Args, Def> {
+    title:string;
     private parent: Component<Args, Def> | null = null;
     private children: { component: Component<Args, Def>; args: Arguments; }[] = [];
     id: string;
