@@ -6,13 +6,14 @@ export abstract class Definition { }
 
 
 export abstract class Component<Args extends Arguments, Def extends Definition> implements oComponent<Args, Def> {
-    title:string;
+    title: string;
     private parent: Component<Args, Def> | null = null;
     private children: { component: Component<Args, Def>; args: Arguments; }[] = [];
     id: string;
     type: string;
+    data: object;
     private definition: Def;
-    private hidden:boolean;
+    private hidden: boolean;
     new() {
     }
     constructor() {
@@ -24,12 +25,12 @@ export abstract class Component<Args extends Arguments, Def extends Definition> 
     setHidden(val: boolean) {
         this.hidden = val;
     }
-    abstract renderLeafStyle(child: Component<any,any>, args:Args): string;
+    abstract renderLeafStyle(child: Component<any, any>, args: Args): string;
 
     getDefinition(): Def {
         return this.definition;
     }
-   
+
     abstract renderCompositeStyle(): string;
 
     setChildren(children: { component: Component<Args, Def>; args: Arguments; }[]): void {
@@ -71,13 +72,15 @@ export abstract class Component<Args extends Arguments, Def extends Definition> 
         return this instanceof Composite;
     }
 
-  
+
     toString() {
         function replacer(key, value) {
             if (key == "id")
                 return undefined;
             if (key == "parent")
                 return undefined;
+            // if (key == "data")
+            //     return JSON.stringify(value);
             if (key == "children")
                 return value.length ? value : undefined;
             else
@@ -95,6 +98,9 @@ export abstract class Component<Args extends Arguments, Def extends Definition> 
                 for (let child of val)
                     child.parent = this;
             }
+            // if (nm == "data") {
+            //     // return JSON.parse(val)
+            // }
             return val;
         }
         var json = JSON.parse(str, reviver);
@@ -123,6 +129,6 @@ export abstract class Component<Args extends Arguments, Def extends Definition> 
 
 export abstract class Composite<A extends Arguments, D extends Definition> extends Component<A, D> { }
 
-export abstract class Leaf<A extends Arguments, D extends Definition> extends Component<A, D> { 
-    abstract getSvelteView():string;
+export abstract class Leaf<A extends Arguments, D extends Definition> extends Component<A, D> {
+    abstract getSvelteView(): string;
 }
