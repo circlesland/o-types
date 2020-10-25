@@ -1,7 +1,8 @@
 
 export class Router {
     static async getManifestFromRoute(ctx): Promise<string> {
-        let ipns = this.getIpnsHashFromUrl();
+        // let ipns = this.getIpnsHashFromUrl();
+        let ipns = ctx.page.base().split("/ipns/")[1];
         let manifest = await this.xfetch(ipns, ctx.path.replace("/", ""));
         return JSON.stringify(manifest);
     }
