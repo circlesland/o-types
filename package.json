@@ -1,9 +1,9 @@
 {
-  "name": "o-types",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.ts",
-  "types": "index.ts",
+  "name": "@omoearth/o-types",
+  "version": "0.0.1",
+  "description": "type library for omo.earth",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

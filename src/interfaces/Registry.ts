@@ -1,4 +1,4 @@
-import type { Constructor } from "../types/constructor";
+import type { Constructor } from "../../index";
 
 export interface oRegistry {
     getNewInstance<I>(name: string, clone?: any, ...args: any[]): I;

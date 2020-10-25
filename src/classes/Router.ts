@@ -1,22 +1,3 @@
-export type RouteArguments = {
-    dapp: o;
-    route: string;
-}
-
-export enum o {
-    DENTITY = "bafzbeidz3eazquyorhjdiosdgbc5j73yz5omnyqrasuz7pertimlmz7e5y",
-    WALLET = "bafzbeicmtet2ytuo5jlg2jtuh4rbtfvntznwah5mt2kb4xj3zgxt2ol5ma",
-    // textile="bafzbeiafbjcuy4dxnily3nbt7nab6ebdwyti3z7jgdrblnm4ivqw7hubki",
-    MARKET = "bafzbeiahddbruy5letgjx6tiijzaednwr3zngtk57u3yyrjcsba7sqjbdq"
-}
-export function navigateTo(args: RouteArguments, dispatch: any) {
-    dispatch('navigateTo', args);
-}
-
-export function navigate(event) {
-    var args: RouteArguments = event.detail;
-    Router.navigateTo(args.dapp.toString(), args.route);
-}
 
 export class Router {
     static async getManifestFromRoute(ctx): Promise<string> {
@@ -28,12 +9,6 @@ export class Router {
     private static getIpnsHashFromUrl() {
         return window.location.pathname.split('#!')[0].split("/ipns/")[1].replace(/\//g, "");
     }
-
-
-
-    // static getPageBase() {
-    //     return window.location.pathname.split('#!')[0];
-    // }
 
     static page;
 
@@ -56,7 +31,7 @@ export class Router {
         "bafzbeicmtet2ytuo5jlg2jtuh4rbtfvntznwah5mt2kb4xj3zgxt2ol5ma": "o-wallet",
         // "bafzbeiafbjcuy4dxnily3nbt7nab6ebdwyti3z7jgdrblnm4ivqw7hubki": "textile",
         "bafzbeiahddbruy5letgjx6tiijzaednwr3zngtk57u3yyrjcsba7sqjbdq": "o-market"
-    }
+    };
 
     static navigateTo(hash: string, action: string) {
         this.page.base(`/ipns/${hash}`);
@@ -65,7 +40,7 @@ export class Router {
 
     static async xfetch(hash: string, page?: string): Promise<object> {
         let baseUrl = `${window.location.origin}/${window.o.isLocal
-            ? `${this.appHashNameLookup[hash]}/`
+            ? `${this.appHashNameLookup[hash]}/src/`
             : `ipns/${hash}/`}`;
         page = page == "" || page == "/" || !page ? "index" : page;
         const data = await fetch(baseUrl + page + ".json");
@@ -75,6 +50,11 @@ export class Router {
 }
 
 
+// export function navigateTo(args: RouteArguments, dispatch: any) {
+//     dispatch('navigateTo', args);
+// }
 
-
-
+// export function navigate(event) {
+//     var args: RouteArguments = event.detail;
+//     Router.navigateTo(args.dapp.toString(), args.route);
+// }
