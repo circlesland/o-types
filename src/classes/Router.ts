@@ -30,7 +30,7 @@ export class Router {
     static appHashNameLookup = {
         "bafzbeidz3eazquyorhjdiosdgbc5j73yz5omnyqrasuz7pertimlmz7e5y": "o-dentity",
         "bafzbeicmtet2ytuo5jlg2jtuh4rbtfvntznwah5mt2kb4xj3zgxt2ol5ma": "o-wallet",
-        // "bafzbeiafbjcuy4dxnily3nbt7nab6ebdwyti3z7jgdrblnm4ivqw7hubki": "textile",
+        "bafzbeiafbjcuy4dxnily3nbt7nab6ebdwyti3z7jgdrblnm4ivqw7hubki": "o-textile-hub",
         "bafzbeiahddbruy5letgjx6tiijzaednwr3zngtk57u3yyrjcsba7sqjbdq": "o-market",
         "bafzbeig3f5vcqj5jhhtuckbot7totpshpzsuaaq3gw24kwnpwtf5qc35my": "o-friends"
     };
@@ -50,7 +50,6 @@ export class Router {
         return json;
     }
 }
-
 
 // export function navigateTo(args: RouteArguments, dispatch: any) {
 //     dispatch('navigateTo', args);
