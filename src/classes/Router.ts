@@ -32,7 +32,8 @@ export class Router {
         "bafzbeicmtet2ytuo5jlg2jtuh4rbtfvntznwah5mt2kb4xj3zgxt2ol5ma": "o-wallet",
         "bafzbeiafbjcuy4dxnily3nbt7nab6ebdwyti3z7jgdrblnm4ivqw7hubki": "o-textile-hub",
         "bafzbeiahddbruy5letgjx6tiijzaednwr3zngtk57u3yyrjcsba7sqjbdq": "o-market",
-        "bafzbeig3f5vcqj5jhhtuckbot7totpshpzsuaaq3gw24kwnpwtf5qc35my": "o-friends"
+        "bafzbeig3f5vcqj5jhhtuckbot7totpshpzsuaaq3gw24kwnpwtf5qc35my": "o-friends",
+        "bafzbeihcehyawlhvltossqfhblyqeuer34yak24ctesgwnnf7aeyk33lce": "o-website"
     };
 
     static navigateTo(hash: string, action: string) {
